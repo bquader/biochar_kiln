@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer & Biochar Chatbot</title>
+
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-header">Chat about Biochar</div>
+        <div id="messages"></div>
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Ask about biochar...">
+            <button id="send-btn" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        async function sendMessage() {
+    const userInput = document.getElementById("user-input"); // Get the input field
+    const userMessage = userInput.value.trim(); // Retrieve and trim user input
+
+    if (!userMessage) return; 
+
+    // Display user's message in the chat window
+    const messagesContainer = document.getElementById("messages");
+    const userMessageElement = document.createElement("div");
+    userMessageElement.className = "message user-message";
+    userMessageElement.textContent = userMessage;
+    messagesContainer.appendChild(userMessageElement);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    userInput.value = ""; // Clear the input field
+
+    try {
+        // Send user input to the backend
+        const response = await fetch('http://127.0.0.1:5000/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: userMessage })
+        });
+
+        const data = await response.json();
+
+        // Display the bot's response
+        const botMessageElement = document.createElement("div");
+        botMessageElement.className = "message bot-message";
+        botMessageElement.textContent = data.reply;
+        messagesContainer.appendChild(botMessageElement);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    } catch (error) {
+        console.error("Error:", error);
+
+        // Display an error message
+        const errorMessageElement = document.createElement("div");
+        errorMessageElement.className = "message bot-message";
+        errorMessageElement.textContent = "Error: Unable to connect to the server.";
+        messagesContainer.appendChild(errorMessageElement);
+    }
+}
+    </script>
+</body>
+</html>
