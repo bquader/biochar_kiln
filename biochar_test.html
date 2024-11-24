@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Biochar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+    .upload-section {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
+      max-width: 400px;
+    }
+    .upload-section label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .upload-section input {
+      margin-bottom: 1rem;
+    }
+    .upload-section button {
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      background-color: #4CAF50;
+      cursor: pointer;
+    }
+    .upload-section button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Test Biochar</h1>
+  </header>
+  <main>
+    <div class="upload-section">
+      <label for="file-upload">Upload your soil test image:</label>
+      <input type="file" id="file-upload" accept="image/*">
+      <button onclick="uploadImage()">Analyze</button>
+      <p id="upload-status"></p>
+    </div>
+  </main>
+  <script>
+    function uploadImage() {
+      const fileInput = document.getElementById('file-upload');
+      if (fileInput.files.length === 0) {
+        alert('Please select a file to upload.');
+        return;
+      }
+
+      const file = fileInput.files[0];
+      const status = document.getElementById('upload-status');
+      status.textContent = 'Analyzing your image...';
+
+      // Insert ChatGPT API logic
+      setTimeout(() => {
+        status.textContent = 'Analysis complete.';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
