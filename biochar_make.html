@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make Biochar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      padding: 2rem;
+    }
+    .step {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .step img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    .question {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    .question input {
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .navigation-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+    .navigation-buttons button {
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      background-color: #4CAF50;
+      cursor: pointer;
+    }
+    .navigation-buttons button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Make Biochar</h1>
+  </header>
+  <main>
+    <div class="step" id="step-1">
+      <h2>Step 1: Preparation</h2>
+      <p>Analyze the soil...</p>
+      <img src="step1-image-placeholder.jpg" alt="Materials for biochar">
+      <div class="question">
+        <label for="question-1">What color is the soil?</label>
+        <input type="text" id="question-1" placeholder="Enter your answer here">
+      </div>
+      <div class="navigation-buttons">
+        <button disabled>Previous</button>
+        <button onclick="goToNextStep()">Next</button>
+      </div>
+    </div>
+    <!-- Repeat for other steps -->
+  </main>
+  <script>
+    let currentStep = 1;
+    function goToNextStep() {
+      // Logic to show the next step
+      alert('Go to the next step functionality will be added here.');
+    }
+    function goToPreviousStep() {
+      // Logic to go back to the previous step
+      alert('Go to the previous step functionality will be added here.');
+    }
+  </script>
+</body>
+</html>
